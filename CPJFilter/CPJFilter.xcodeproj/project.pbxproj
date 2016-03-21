@@ -15,6 +15,10 @@
 		D9BFA4611C9FBBFE00BCB483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9BFA45F1C9FBBFE00BCB483 /* LaunchScreen.storyboard */; };
 		D9BFA46C1C9FBBFE00BCB483 /* CPJFilterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA46B1C9FBBFE00BCB483 /* CPJFilterTests.m */; };
 		D9BFA4771C9FBBFE00BCB483 /* CPJFilterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4761C9FBBFE00BCB483 /* CPJFilterUITests.m */; };
+		D9BFA4871C9FBC3000BCB483 /* CPJFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4861C9FBC3000BCB483 /* CPJFilter.m */; };
+		D9BFA48C1C9FEA4C00BCB483 /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA48A1C9FEA4C00BCB483 /* TempViewController.m */; };
+		D9BFA48D1C9FEA4C00BCB483 /* TempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9BFA48B1C9FEA4C00BCB483 /* TempViewController.xib */; };
+		D9BFA4901C9FFCA800BCB483 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA48F1C9FFCA800BCB483 /* HViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		D9BFA4721C9FBBFE00BCB483 /* CPJFilterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPJFilterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BFA4761C9FBBFE00BCB483 /* CPJFilterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPJFilterUITests.m; sourceTree = "<group>"; };
 		D9BFA4781C9FBBFE00BCB483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9BFA4851C9FBC3000BCB483 /* CPJFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJFilter.h; sourceTree = "<group>"; };
+		D9BFA4861C9FBC3000BCB483 /* CPJFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJFilter.m; sourceTree = "<group>"; };
+		D9BFA4881C9FC07300BCB483 /* CPJFilterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJFilterProtocol.h; sourceTree = "<group>"; };
+		D9BFA4891C9FEA4C00BCB483 /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = "<group>"; };
+		D9BFA48A1C9FEA4C00BCB483 /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = "<group>"; };
+		D9BFA48B1C9FEA4C00BCB483 /* TempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempViewController.xib; sourceTree = "<group>"; };
+		D9BFA48E1C9FFCA800BCB483 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HViewController.h; path = ../HViewController.h; sourceTree = "<group>"; };
+		D9BFA48F1C9FFCA800BCB483 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HViewController.m; path = ../HViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +113,16 @@
 		D9BFA4501C9FBBFE00BCB483 /* CPJFilter */ = {
 			isa = PBXGroup;
 			children = (
+				D9BFA4841C9FBC1800BCB483 /* CPJFilter */,
 				D9BFA4541C9FBBFE00BCB483 /* AppDelegate.h */,
 				D9BFA4551C9FBBFE00BCB483 /* AppDelegate.m */,
 				D9BFA4571C9FBBFE00BCB483 /* ViewController.h */,
 				D9BFA4581C9FBBFE00BCB483 /* ViewController.m */,
+				D9BFA4891C9FEA4C00BCB483 /* TempViewController.h */,
+				D9BFA48A1C9FEA4C00BCB483 /* TempViewController.m */,
+				D9BFA48E1C9FFCA800BCB483 /* HViewController.h */,
+				D9BFA48F1C9FFCA800BCB483 /* HViewController.m */,
+				D9BFA48B1C9FEA4C00BCB483 /* TempViewController.xib */,
 				D9BFA45A1C9FBBFE00BCB483 /* Main.storyboard */,
 				D9BFA45D1C9FBBFE00BCB483 /* Assets.xcassets */,
 				D9BFA45F1C9FBBFE00BCB483 /* LaunchScreen.storyboard */,
@@ -138,6 +156,16 @@
 				D9BFA4781C9FBBFE00BCB483 /* Info.plist */,
 			);
 			path = CPJFilterUITests;
+			sourceTree = "<group>";
+		};
+		D9BFA4841C9FBC1800BCB483 /* CPJFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D9BFA4881C9FC07300BCB483 /* CPJFilterProtocol.h */,
+				D9BFA4851C9FBC3000BCB483 /* CPJFilter.h */,
+				D9BFA4861C9FBC3000BCB483 /* CPJFilter.m */,
+			);
+			path = CPJFilter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9BFA48D1C9FEA4C00BCB483 /* TempViewController.xib in Resources */,
 				D9BFA4611C9FBBFE00BCB483 /* LaunchScreen.storyboard in Resources */,
 				D9BFA45E1C9FBBFE00BCB483 /* Assets.xcassets in Resources */,
 				D9BFA45C1C9FBBFE00BCB483 /* Main.storyboard in Resources */,
@@ -271,6 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9BFA4591C9FBBFE00BCB483 /* ViewController.m in Sources */,
+				D9BFA48C1C9FEA4C00BCB483 /* TempViewController.m in Sources */,
+				D9BFA4871C9FBC3000BCB483 /* CPJFilter.m in Sources */,
+				D9BFA4901C9FFCA800BCB483 /* HViewController.m in Sources */,
 				D9BFA4561C9FBBFE00BCB483 /* AppDelegate.m in Sources */,
 				D9BFA4531C9FBBFE00BCB483 /* main.m in Sources */,
 			);

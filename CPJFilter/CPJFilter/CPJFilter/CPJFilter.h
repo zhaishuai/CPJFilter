@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CPJFilterProtocol.h"
 
-@interface CPJFilter : NSObject
+
+@interface CPJFilter : NSObject<CPJFilterProtocol>
+
+@property (nonatomic)NSDictionary     *viewControllerTable;
+@property (nonatomic)UIViewController *loginController;
+@property (nonatomic)NSString *storyboardName;
 
 @end

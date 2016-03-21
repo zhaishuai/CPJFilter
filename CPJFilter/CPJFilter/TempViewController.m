@@ -33,5 +33,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)temp:(id)sender {
+    NSLog(@"hello world");
+    
+}
 
 @end
