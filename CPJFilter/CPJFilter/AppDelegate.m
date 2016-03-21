@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MyFilter.h"
+
 
 @interface AppDelegate ()
 
@@ -16,7 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+//    id<CPJFilterProtocol> filter = [MyFilter shareInstance];
+    
+    
     return YES;
 }
 

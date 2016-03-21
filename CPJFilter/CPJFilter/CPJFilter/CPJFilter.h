@@ -16,4 +16,6 @@
 @property (nonatomic)UIViewController *loginController;
 @property (nonatomic)NSString *storyboardName;
 
++ (instancetype)shareInstance;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface HViewController : UIViewController
 
+- (void)show;
+
 @end

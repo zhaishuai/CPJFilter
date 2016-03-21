@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D97714A01CA0388600A1B56B /* MyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D977149F1CA0388600A1B56B /* MyFilter.m */; };
 		D9BFA4531C9FBBFE00BCB483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4521C9FBBFE00BCB483 /* main.m */; };
 		D9BFA4561C9FBBFE00BCB483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4551C9FBBFE00BCB483 /* AppDelegate.m */; };
 		D9BFA4591C9FBBFE00BCB483 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4581C9FBBFE00BCB483 /* ViewController.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D977149E1CA0388600A1B56B /* MyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFilter.h; sourceTree = "<group>"; };
+		D977149F1CA0388600A1B56B /* MyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFilter.m; sourceTree = "<group>"; };
 		D9BFA44E1C9FBBFE00BCB483 /* CPJFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPJFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BFA4521C9FBBFE00BCB483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D9BFA4541C9FBBFE00BCB483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				D9BFA48A1C9FEA4C00BCB483 /* TempViewController.m */,
 				D9BFA48E1C9FFCA800BCB483 /* HViewController.h */,
 				D9BFA48F1C9FFCA800BCB483 /* HViewController.m */,
+				D977149E1CA0388600A1B56B /* MyFilter.h */,
+				D977149F1CA0388600A1B56B /* MyFilter.m */,
 				D9BFA48B1C9FEA4C00BCB483 /* TempViewController.xib */,
 				D9BFA45A1C9FBBFE00BCB483 /* Main.storyboard */,
 				D9BFA45D1C9FBBFE00BCB483 /* Assets.xcassets */,
@@ -304,6 +309,7 @@
 				D9BFA4871C9FBC3000BCB483 /* CPJFilter.m in Sources */,
 				D9BFA4901C9FFCA800BCB483 /* HViewController.m in Sources */,
 				D9BFA4561C9FBBFE00BCB483 /* AppDelegate.m in Sources */,
+				D97714A01CA0388600A1B56B /* MyFilter.m in Sources */,
 				D9BFA4531C9FBBFE00BCB483 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +536,7 @@
 				D9BFA47D1C9FBBFE00BCB483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9BFA47E1C9FBBFE00BCB483 /* Build configuration list for PBXNativeTarget "CPJFilterTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +545,7 @@
 				D9BFA4801C9FBBFE00BCB483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9BFA4811C9FBBFE00BCB483 /* Build configuration list for PBXNativeTarget "CPJFilterUITests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +554,7 @@
 				D9BFA4831C9FBBFE00BCB483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

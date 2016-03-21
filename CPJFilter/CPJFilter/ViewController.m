@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CPJFilter.h"
+#import "MyFilter.h"
 #import "TempViewController.h"
 #import "HViewController.h"
 
@@ -34,24 +34,13 @@
 }
 - (IBAction)showVC:(id)sender {
     
-    CPJFilter *filter = [CPJFilter new];
-    filter.viewControllerTable = @{@"临时VC": [TempViewController class]};
-    
-    [filter pushViewControllerWithID:@"临时VC" withValueDict:nil];
-    
-//    TempViewController *vc = [[TempViewController alloc] init];
-//    
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-    
-    
+    MyFilter *filter = [MyFilter shareInstance];
+    [filter pushViewControllerWithID:TempVieControllerID withValueDict:nil];
 }
 - (IBAction)showHvc:(id)sender {
-    CPJFilter *filter = [CPJFilter new];
-    filter.storyboardName = @"Main";
-    filter.viewControllerTable = @{@"MyHVC":@"com.my"};
-    [filter pushViewControllerWithID:@"MyHVC" withValueDict:nil];
-    
+    MyFilter *filter = [MyFilter shareInstance];
+    HViewController *vc = [filter pushViewControllerWithID:HViewControllerID withValueDict:nil];
+    [vc show];
 }
 
 @end

@@ -12,21 +12,60 @@
 
 @implementation CPJFilter
 
-- (void)setViewControllerTable:(NSDictionary *)viewControllerTable{
-    _viewControllerTable = viewControllerTable;
++ (instancetype)shareInstance{
+    static CPJFilter *filter;
+    static dispatch_once_t  onceToken;
+    dispatch_once(&onceToken, ^{
+        filter = [[[self class] alloc] init];
+        filter.storyboardName = @"Main";
+        [filter configViewControllerTable];
+    });
+    return filter;
 }
 
-- (void)setLoginViewController:(UIViewController *)loginController{
-    _loginController = loginController;
+// overwrite
+//
+- (void)configViewControllerTable{
+
 }
 
-- (void)pushViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
+// overwrite
+//
+- (BOOL)checkLogin{
     
-    id cla = [self.viewControllerTable objectForKey:viewControllerID];
+    return NO;
+}
+
+// overwrite
+//
+- (void)login{
+    
+}
+
+// overwrite
+//
+- (void)logout{
+    
+}
+
+- (id)pushViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
     UINavigationController *pvc = (UINavigationController *)[CPJFilter getTopMostViewController];
-    UIViewController *vc;
-    
+    UIViewController *vc = [self createViewControllerWithID:viewControllerID withValueDict:dict];
+    [pvc pushViewController:vc animated:YES];
+    return vc;
+}
 
+- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
+    
+}
+
+- (id)createViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
+    NSArray *array = [self.viewControllerTable objectForKey:viewControllerID];
+    NSAssert(array.count == 2, @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
+    NSAssert(![[array firstObject] isKindOfClass:[NSNumber class]], @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
+    id cla               = [array firstObject];
+    BOOL needCheckLogin  = [[array lastObject] boolValue];
+    UIViewController *vc = nil;
     if([cla isKindOfClass:[NSString class]]){
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:self.storyboardName bundle:nil];
         vc = [storyboard instantiateViewControllerWithIdentifier:cla];
@@ -34,29 +73,10 @@
         NSObject *object = [[cla alloc] init];
         if([object isKindOfClass:[UIViewController class]]){
             vc = [[cla alloc] init];
-            
         }
     }
-    [pvc pushViewController:vc animated:YES];
+    return vc;
 }
-
-- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
-
-}
-
-- (BOOL)checkLogin{
-    
-    return NO;
-}
-
-- (void)login{
-
-}
-
-- (void)logout{
-
-}
-
 
 
 + (UIViewController*) getTopMostViewController
