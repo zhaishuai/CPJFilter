@@ -34,7 +34,8 @@
 }
 - (IBAction)showVC:(id)sender {
 
-    [[MyFilter shareInstance] pushViewControllerWithID:TempVieControllerID withValueDict:nil completion:nil];
+//    [[MyFilter shareInstance] pushViewControllerWithID:TempVieControllerID withValueDict:nil completion:nil];
+    [[MyFilter shareInstance] presentViewControllerWithID:TempVieControllerID withValueDict:nil completion:nil];
 }
 - (IBAction)showHvc:(id)sender {
     [[MyFilter shareInstance] pushViewControllerWithID:HViewControllerID withValueDict:nil completion:^(id obj) {

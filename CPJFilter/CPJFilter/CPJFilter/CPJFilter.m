@@ -69,7 +69,8 @@ typedef void (^FinishAnimation)(id);
                     [self pushViewControllerWithID:vcID withParentVC:vcPvc withValueDict:vcDict completion:finishAnimationCompletion];
                     vcID = nil;
                 }else{
-
+                    [self presentViewControllerWithID:vcID withParentVC:vcPvc withValueDict:vcDict completion:finishAnimationCompletion];
+                    vcID = nil;
                 }
             }
         }
@@ -152,10 +153,33 @@ typedef void (^FinishAnimation)(id);
     [self pushViewControllerWithID:viewControllerID withParentVC:pvc withValueDict:dict completion:completion];
 }
 
-
-- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
-    vcID = nil;
+- (void)presentViewControllerWithID:(NSString *)viewControllerID withParentVC:(UINavigationController *)pvc withValueDict:(NSDictionary *)dict completion:(void (^)(id viewController))completion{
+    NSArray *array = [self.viewControllerTable objectForKey:viewControllerID];
+    NSAssert(array.count == 2, @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
+    NSAssert(![[array firstObject] isKindOfClass:[NSNumber class]], @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
+    BOOL needCheckLogin  = [[array lastObject] boolValue];
     
+    UIViewController *vc = [self createViewControllerWithID:viewControllerID withValueDict:dict];
+    if(needCheckLogin && ![self hasLogin]){
+        [self needLogin];
+//        vcID = viewControllerID;
+//        vcDict = dict;
+//        finishAnimationCompletion = completion;
+//        pushType = NO;
+//        vcPvc = pvc;
+        return;
+    }
+
+    [pvc.topViewController presentViewController:vc animated:YES completion:nil];
+    if(completion!=nil){
+        completion(vc);
+    }
+}
+
+- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict completion:(void (^)(id viewController))completion{
+    vcID = nil;
+    UINavigationController *pvc = (UINavigationController *)[CPJFilter getTopMostViewController];
+    [self presentViewControllerWithID:viewControllerID withParentVC:pvc withValueDict:dict completion:completion];
 }
 
 - (void)setMainViewController:(UIViewController *)viewController{

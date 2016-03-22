@@ -18,7 +18,7 @@
     self.storyboardName = @"Main";
     self.viewControllerTable =
   @{
-    CPJADD_VC(TempVieControllerID, TempViewController)
+    CPJADD_NEED_LOGIN_VC(TempVieControllerID, TempViewController)
     CPJADD_NEED_LOGIN_STORYBOARD_VC(HViewControllerID, @"com.my")
     };
     [self setLoginVCWithClass:[LoginViewController class]];

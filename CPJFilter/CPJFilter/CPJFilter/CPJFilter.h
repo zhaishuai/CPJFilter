@@ -72,9 +72,9 @@
  */
 - (BOOL)hasLogin;
 
-- (void)pushViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict completion:(void (^)(id obj))completion;
+- (void)pushViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict completion:(void (^)(id viewController))completion;
 
-- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict;
+- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict completion:(void (^)(id viewController))completion;
 
 - (void)needLogin;
 
