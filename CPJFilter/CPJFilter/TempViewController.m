@@ -7,6 +7,7 @@
 //
 
 #import "TempViewController.h"
+#import "MyFilter.h"
 
 @interface TempViewController ()
 
@@ -36,6 +37,9 @@
 - (IBAction)temp:(id)sender {
     NSLog(@"hello world");
     
+}
+- (IBAction)logoutAction:(id)sender {
+    [[MyFilter shareInstance] logout];
 }
 
 @end

@@ -7,8 +7,24 @@
 //
 
 #import "CPJFilter.h"
-#import <objc/runtime.h>
 #import "AppDelegate.h"
+
+typedef void (^LoginCompletion)(BOOL);
+typedef void (^FinishAnimation)(id);
+
+@interface CPJFilter (){
+    LoginCompletion loginCompletion;
+    NSString        *vcID;
+    NSDictionary    *vcDict;
+    BOOL            pushType;
+    UINavigationController *vcPvc;
+    FinishAnimation finishAnimationCompletion;
+    
+}
+
+
+
+@end
 
 @implementation CPJFilter
 
@@ -31,15 +47,34 @@
 
 // overwrite
 //
-- (BOOL)checkLogin{
+- (BOOL)hasLogin{
     
     return NO;
 }
 
 // overwrite
 //
-- (void)login{
-    
+- (void)loginWithCompletion:(void (^)(BOOL))completion{
+    loginCompletion = completion;
+
+}
+
+- (void)setLoginSuccess:(BOOL)loginSuccess{
+    _loginSuccess = loginSuccess;
+    if(loginCompletion){
+        
+        if(loginSuccess){
+            if(vcID!=nil){
+                if(pushType){
+                    [self pushViewControllerWithID:vcID withParentVC:vcPvc withValueDict:vcDict completion:finishAnimationCompletion];
+                    vcID = nil;
+                }else{
+
+                }
+            }
+        }
+        loginCompletion(loginSuccess);
+    }
 }
 
 // overwrite
@@ -48,23 +83,91 @@
     
 }
 
-- (id)pushViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
+- (void)needLogin{
+    [self needLoginWithCompletion:nil];
+}
+
+- (void)needLoginWithCompletion:(void (^)(void))completion{
     UINavigationController *pvc = (UINavigationController *)[CPJFilter getTopMostViewController];
-    UIViewController *vc = [self createViewControllerWithID:viewControllerID withValueDict:dict];
-    [pvc pushViewController:vc animated:YES];
-    return vc;
+    id cla               = loginController;
+    UIViewController *vc = nil;
+    if([cla isKindOfClass:[NSString class]]){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:self.storyboardName bundle:nil];
+        vc = [storyboard instantiateViewControllerWithIdentifier:cla];
+    }else{
+        NSObject *object = [[cla alloc] init];
+        if([object isKindOfClass:[UIViewController class]]){
+            vc = [[cla alloc] init];
+        }
+    }
+    NSAssert(vc!=nil, @"请设置LoginViewController。");
+    if(![self hasLogin]){
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+        [pvc.visibleViewController presentViewController:nvc animated:YES completion:completion];
+    }
 }
 
-- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
-    
+- (void)setLoginVCWithClass:(Class)cla{
+    loginController = cla;
 }
 
-- (id)createViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
+- (void)setLoginVCWithStoryBoardId:(NSString *)ID{
+    loginController = ID;
+}
+
+- (void)needLoginWhenAppStartUp:(UIViewController *)viewController{
+    if(![self hasLogin])
+        [self needLogin];
+    else{
+        [self setMainViewController:viewController];
+    }
+}
+
+- (void)pushViewControllerWithID:(NSString *)viewControllerID withParentVC:(UINavigationController *)pvc withValueDict:(NSDictionary *)dict completion:(void (^)(id))completion{
     NSArray *array = [self.viewControllerTable objectForKey:viewControllerID];
     NSAssert(array.count == 2, @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
     NSAssert(![[array firstObject] isKindOfClass:[NSNumber class]], @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
-    id cla               = [array firstObject];
     BOOL needCheckLogin  = [[array lastObject] boolValue];
+    
+    UIViewController *vc = [self createViewControllerWithID:viewControllerID withValueDict:dict];
+    if(needCheckLogin && ![self hasLogin]){
+        [self needLogin];
+        vcID = viewControllerID;
+        vcDict = dict;
+        finishAnimationCompletion = completion;
+        pushType = YES;
+        vcPvc = pvc;
+        return;
+    }
+    [pvc pushViewController:vc animated:YES];
+    if(completion!=nil){
+        completion(vc);
+    }
+}
+
+- (void)pushViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict completion:(void (^)(id))completion{
+   UINavigationController *pvc = (UINavigationController *)[CPJFilter getTopMostViewController];
+    [self pushViewControllerWithID:viewControllerID withParentVC:pvc withValueDict:dict completion:completion];
+}
+
+
+- (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
+    
+    
+}
+
+- (void)setMainViewController:(UIViewController *)viewController{
+    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [[[UIApplication sharedApplication] delegate] setWindow:window];
+    window.rootViewController = viewController;
+    [window makeKeyAndVisible];
+}
+
+- (id)createViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
+    
+    NSArray *array = [self.viewControllerTable objectForKey:viewControllerID];
+    id cla               = [array firstObject];
     UIViewController *vc = nil;
     if([cla isKindOfClass:[NSString class]]){
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:self.storyboardName bundle:nil];
@@ -112,6 +215,19 @@
     }
     
     return nil;
+}
+
++ (UIWindow *) getNormalLevelWindow{
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal) {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(window in windows) {
+            if (window.windowLevel == UIWindowLevelNormal) {
+                break;
+            }
+        }
+    }
+    return window;
 }
 
 + (UIViewController *) topViewController: (UIViewController *) controller

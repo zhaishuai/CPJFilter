@@ -33,14 +33,17 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)showVC:(id)sender {
-    
-    MyFilter *filter = [MyFilter shareInstance];
-    [filter pushViewControllerWithID:TempVieControllerID withValueDict:nil];
+
+    [[MyFilter shareInstance] pushViewControllerWithID:TempVieControllerID withValueDict:nil completion:nil];
 }
 - (IBAction)showHvc:(id)sender {
-    MyFilter *filter = [MyFilter shareInstance];
-    HViewController *vc = [filter pushViewControllerWithID:HViewControllerID withValueDict:nil];
-    [vc show];
+    [[MyFilter shareInstance] pushViewControllerWithID:HViewControllerID withValueDict:nil completion:^(id obj) {
+        [obj show];
+    }];
+    
+}
+- (IBAction)logout:(id)sender {
+    [[MyFilter shareInstance] logout];
 }
 
 @end

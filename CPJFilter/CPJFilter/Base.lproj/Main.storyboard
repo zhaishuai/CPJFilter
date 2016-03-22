@@ -31,6 +31,13 @@
                                     <action selector="showHvc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="guP-Yy-pwl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XA3-Ih-WPt">
+                                <rect key="frame" x="21" y="309" width="44" height="30"/>
+                                <state key="normal" title="logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="28c-M6-BhA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -66,7 +73,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FN8-Ia-aEX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tv8-f4-qhJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="com.main" automaticallyAdjustsScrollViewInsets="NO" id="Tv8-f4-qhJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eLU-m0-caJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

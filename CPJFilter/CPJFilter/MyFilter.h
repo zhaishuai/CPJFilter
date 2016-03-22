@@ -7,7 +7,7 @@
 //
 
 #import "CPJFilter.h"
-
+#import "CPJKeepLoginFilter.h"
 
 #define HViewControllerID   @"测试StoreBoard加载"
 #define TempVieControllerID @"测试Xib加载"

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D97714A01CA0388600A1B56B /* MyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D977149F1CA0388600A1B56B /* MyFilter.m */; };
+		D9B23D2F1CA0DDC5002751E6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B23D2D1CA0DDC5002751E6 /* LoginViewController.m */; };
+		D9B23D301CA0DDC5002751E6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B23D2E1CA0DDC5002751E6 /* LoginViewController.xib */; };
+		D9B23D331CA1192A002751E6 /* CPJKeepLoginFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B23D321CA1192A002751E6 /* CPJKeepLoginFilter.m */; };
 		D9BFA4531C9FBBFE00BCB483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4521C9FBBFE00BCB483 /* main.m */; };
 		D9BFA4561C9FBBFE00BCB483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4551C9FBBFE00BCB483 /* AppDelegate.m */; };
 		D9BFA4591C9FBBFE00BCB483 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BFA4581C9FBBFE00BCB483 /* ViewController.m */; };
@@ -42,6 +45,11 @@
 /* Begin PBXFileReference section */
 		D977149E1CA0388600A1B56B /* MyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFilter.h; sourceTree = "<group>"; };
 		D977149F1CA0388600A1B56B /* MyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFilter.m; sourceTree = "<group>"; };
+		D9B23D2C1CA0DDC5002751E6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D9B23D2D1CA0DDC5002751E6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D9B23D2E1CA0DDC5002751E6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D9B23D311CA1192A002751E6 /* CPJKeepLoginFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPJKeepLoginFilter.h; sourceTree = "<group>"; };
+		D9B23D321CA1192A002751E6 /* CPJKeepLoginFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPJKeepLoginFilter.m; sourceTree = "<group>"; };
 		D9BFA44E1C9FBBFE00BCB483 /* CPJFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPJFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BFA4521C9FBBFE00BCB483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D9BFA4541C9FBBFE00BCB483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,6 +135,9 @@
 				D9BFA48F1C9FFCA800BCB483 /* HViewController.m */,
 				D977149E1CA0388600A1B56B /* MyFilter.h */,
 				D977149F1CA0388600A1B56B /* MyFilter.m */,
+				D9B23D2C1CA0DDC5002751E6 /* LoginViewController.h */,
+				D9B23D2D1CA0DDC5002751E6 /* LoginViewController.m */,
+				D9B23D2E1CA0DDC5002751E6 /* LoginViewController.xib */,
 				D9BFA48B1C9FEA4C00BCB483 /* TempViewController.xib */,
 				D9BFA45A1C9FBBFE00BCB483 /* Main.storyboard */,
 				D9BFA45D1C9FBBFE00BCB483 /* Assets.xcassets */,
@@ -169,6 +180,8 @@
 				D9BFA4881C9FC07300BCB483 /* CPJFilterProtocol.h */,
 				D9BFA4851C9FBC3000BCB483 /* CPJFilter.h */,
 				D9BFA4861C9FBC3000BCB483 /* CPJFilter.m */,
+				D9B23D311CA1192A002751E6 /* CPJKeepLoginFilter.h */,
+				D9B23D321CA1192A002751E6 /* CPJKeepLoginFilter.m */,
 			);
 			path = CPJFilter;
 			sourceTree = "<group>";
@@ -276,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B23D301CA0DDC5002751E6 /* LoginViewController.xib in Resources */,
 				D9BFA48D1C9FEA4C00BCB483 /* TempViewController.xib in Resources */,
 				D9BFA4611C9FBBFE00BCB483 /* LaunchScreen.storyboard in Resources */,
 				D9BFA45E1C9FBBFE00BCB483 /* Assets.xcassets in Resources */,
@@ -304,7 +318,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B23D2F1CA0DDC5002751E6 /* LoginViewController.m in Sources */,
 				D9BFA4591C9FBBFE00BCB483 /* ViewController.m in Sources */,
+				D9B23D331CA1192A002751E6 /* CPJKeepLoginFilter.m in Sources */,
 				D9BFA48C1C9FEA4C00BCB483 /* TempViewController.m in Sources */,
 				D9BFA4871C9FBC3000BCB483 /* CPJFilter.m in Sources */,
 				D9BFA4901C9FFCA800BCB483 /* HViewController.m in Sources */,

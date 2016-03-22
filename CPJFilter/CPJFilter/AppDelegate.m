@@ -18,10 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-//    id<CPJFilterProtocol> filter = [MyFilter shareInstance];
-    
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:[MyFilter shareInstance].storyboardName bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"com.main"];
+    [[MyFilter shareInstance] needLoginWhenAppStartUp:vc];
     return YES;
 }
 
