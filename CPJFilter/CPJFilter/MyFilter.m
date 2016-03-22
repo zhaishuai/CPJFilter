@@ -37,7 +37,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"user_id"];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"user_name"];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"token"];
-    [self needLogin];
+//    [self needLogin];
 }
 
 - (BOOL)hasLogin{

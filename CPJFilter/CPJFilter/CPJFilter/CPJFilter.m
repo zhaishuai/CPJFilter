@@ -124,6 +124,7 @@ typedef void (^FinishAnimation)(id);
 }
 
 - (void)pushViewControllerWithID:(NSString *)viewControllerID withParentVC:(UINavigationController *)pvc withValueDict:(NSDictionary *)dict completion:(void (^)(id))completion{
+    
     NSArray *array = [self.viewControllerTable objectForKey:viewControllerID];
     NSAssert(array.count == 2, @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
     NSAssert(![[array firstObject] isKindOfClass:[NSNumber class]], @"configViewControllerTable发生错误！正确方式如：@[[TempViewController class],@YES]");
@@ -146,13 +147,14 @@ typedef void (^FinishAnimation)(id);
 }
 
 - (void)pushViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict completion:(void (^)(id))completion{
-   UINavigationController *pvc = (UINavigationController *)[CPJFilter getTopMostViewController];
+    vcID = nil;
+    UINavigationController *pvc = (UINavigationController *)[CPJFilter getTopMostViewController];
     [self pushViewControllerWithID:viewControllerID withParentVC:pvc withValueDict:dict completion:completion];
 }
 
 
 - (void)presentViewControllerWithID:(NSString *)viewControllerID withValueDict:(NSDictionary *)dict{
-    
+    vcID = nil;
     
 }
 

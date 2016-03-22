@@ -20,7 +20,7 @@
 }
 
 - (void)show{
-    NSLog(@"HViewController");
+    NSLog(@"show HViewController");
 }
 
 - (void)didReceiveMemoryWarning {

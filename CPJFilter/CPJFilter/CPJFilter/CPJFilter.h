@@ -59,7 +59,7 @@
  *      }
  * }
  */
-- (void)loginWithCompletion:(void (^)(BOOL loginSuccess))completion;
+- (void)loginWithCompletion:(void (^)(BOOL loginSuccess))completion NS_REQUIRES_SUPER;
 
 /**
  * 判断是否已经登录，在子类中重写.
